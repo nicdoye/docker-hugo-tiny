@@ -14,7 +14,7 @@ If you have checked out the contents of your hugo tree in `${HUGO_DIRECTORY}`, y
 via the following.
 
 ```bash
-docker run --rm -it -v ${HUGO_DIRECTORY}:/hugo nicdoye/hugo -s /hugo
+docker run --rm -v ${HUGO_DIRECTORY}:/hugo nicdoye/hugo -s /hugo
 ```
 
 ## Locally
@@ -23,7 +23,7 @@ You can also use it to serve your site while developing locally. Note this also 
 easily pick and choose which version of hugo you want, by picking the relevant tag.
 
 ```bash
-docker run --rm -it -v ${HUGO_DIRECTORY}:/hugo -p 1313:1313 nicdoye/hugo:0.40.3 -s /hugo --bind 0.0.0.0 serve
+docker run --rm -v ${HUGO_DIRECTORY}:/hugo -p 1313:1313 nicdoye/hugo:0.40.3 -s /hugo --bind 0.0.0.0 serve
 ```
 
 ## Notes

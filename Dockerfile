@@ -8,11 +8,11 @@ COPY --from=build hugo /bin/hugo
 LABEL org.label-schema.name = "hugo"
 LABEL org.label-schema.description = "Runs hugo in a bare bones fashion"
 LABEL org.label-schema.vcs-url = "https://github.com/nicdoye/docker-hugo-tiny"
-LABEL org.label-schema.version = "1.0.0-beta1"
+LABEL org.label-schema.version = "1.0.0-beta2"
 LABEL org.label-schema.schema-version = "1.0"
-LABEL org.label-schema.docker.cmd = "docker run --rm -it -v local-hugo-root:/hugo nicdoye/hugo -s /hugo"
-LABEL org.label-schema.docker.devel = "docker run --rm -it -v local-hugo-root:/hugo -p 1313:1313 nicdoye/hugo -s /hugo --bind 0.0.0.0 --debug serve"
-LABEL org.label-schema.docker.cmd.help = " docker run --rm -it nicdoye/hugo help"
+LABEL org.label-schema.docker.cmd = "docker run --rm -v local-hugo-root:/hugo nicdoye/hugo -s /hugo"
+LABEL org.label-schema.docker.devel = "docker run --rm -v local-hugo-root:/hugo -p 1313:1313 nicdoye/hugo -s /hugo --bind 0.0.0.0 --debug serve"
+LABEL org.label-schema.docker.cmd.help = " docker run --rm nicdoye/hugo help"
 LABEL org.label-schema.vendor = "Nic Doye"
 
 EXPOSE 1313
