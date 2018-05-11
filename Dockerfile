@@ -3,7 +3,7 @@ FROM alpine:3.7 as build
 ENV HUGO_VERSION 0.40.3
 RUN wget -q -O - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz | tar zxf -
 
-FROM scratch
+FROM busybox
 COPY --from=build hugo /bin/hugo
 LABEL org.label-schema.name = "hugo"
 LABEL org.label-schema.description = "Runs hugo in a bare bones fashion"
@@ -16,4 +16,4 @@ LABEL org.label-schema.docker.cmd.help = " docker run --rm nicdoye/hugo help"
 LABEL org.label-schema.vendor = "Nic Doye"
 
 EXPOSE 1313
-ENTRYPOINT [ "/bin/hugo" ]
+CMD [ "/bin/hugo" ]
