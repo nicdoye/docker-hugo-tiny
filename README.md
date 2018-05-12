@@ -8,7 +8,11 @@ It is intended to be used as part of a CI/CD pipeline, or locally as a replaceme
 
 It is tiny. With hugo 0.40.3, `docker images` reports it as being 17.8MB, roughly the same size as hugo itself.
 
-## In a pipeline
+## Standard version
+
+The standard version is based on the scratch image, which means is roughly the same size as hugo binary itself.
+
+### In a pipeline
 
 If you have checked out the contents of your hugo tree in `${HUGO_DIRECTORY}`, you can build your site
 via the following.
@@ -17,13 +21,23 @@ via the following.
 docker run --rm -v ${HUGO_DIRECTORY}:/hugo nicdoye/hugo -s /hugo
 ```
 
-## Locally
+### Locally
 
 You can also use it to serve your site while developing locally. Note this also means you can
 easily pick and choose which version of hugo you want, by picking the relevant tag.
 
 ```bash
 docker run --rm -v ${HUGO_DIRECTORY}:/hugo -p 1313:1313 nicdoye/hugo:0.40.3 -s /hugo --bind 0.0.0.0 serve
+```
+
+## Busybox version
+
+A version built from [busybox](https://hub.docker.com/r/library/busybox/) is also available that gives you more options to play with.
+
+Obviously, this requires you to call hugo when you run it. e.g.
+
+```bash
+docker run --rm -v ${HUGO_DIRECTORY}:/hugo nicdoye/hugo hugo -s /hugo
 ```
 
 ## Notes
