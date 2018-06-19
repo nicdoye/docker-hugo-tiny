@@ -1,6 +1,6 @@
 FROM alpine:3.7 as build
 
-ENV HUGO_VERSION 0.41
+ENV HUGO_VERSION 0.42.1
 RUN apk update && \
   apk add ca-certificates && \
   wget -q -O - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz | tar zxf -
